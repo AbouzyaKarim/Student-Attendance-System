@@ -1,0 +1,53 @@
+<mat-card>
+  <b><span>Add Emploi</span></b>
+</mat-card>
+<hr>
+
+<div class="mat-typography">
+  <div class="container mt-3 col-md-6 offset-md-3">
+
+    <form [formGroup]="absenceForm">
+      <br>
+
+
+      <div class="mb-3">
+        <mat-form-field appearance="standard" fxFlex>
+          <mat-label>Etudiant</mat-label>
+          <mat-select formControlName="userId">
+            <mat-option *ngFor="let u of users" [value]="u.id">
+              {{u.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+        <div class="mb-3">
+          <mat-form-field appearance="standard" fxFlex>
+            <mat-label>Emploi</mat-label>
+            <mat-select formControlName="emploiId">
+              <mat-option *ngFor="let e of emplois" [value]="e.id">
+                {{e.cours}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+      </div>
+
+    </form>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+
+
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" type="Submit" (click)="handelSubmit()" [disabled]=" !(absenceForm.valid && absenceForm.dirty)">
+    <mat-icon>save</mat-icon> Save
+  </button>
+  <button mat-raised-button color="warn" (click)="onClick()" mat-dialog-close><mat-icon>cancel</mat-icon> Close</button>
+</mat-dialog-actions>
+

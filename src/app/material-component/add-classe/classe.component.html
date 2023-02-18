@@ -1,0 +1,48 @@
+<mat-card>
+  <b><span>Add Classe</span></b>
+</mat-card>
+<hr>
+
+<div class="mat-background-primary" class="mat-typography">
+  <form [formGroup]="classeForm">
+    <div fxFlex fxLayout="column">
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="classeForm.controls.name.touched && classeForm.controls.name.invalid">
+          <span *ngIf="classeForm.controls.name.errors.required">This field is mandatory</span>
+        </mat-error>
+      </mat-form-field>
+
+
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" required>
+        <mat-error *ngIf="classeForm.controls.name.touched && classeForm.controls.name.invalid">
+          <span *ngIf="classeForm.controls.name.errors.required">This field is mandatory</span>
+        </mat-error>
+      </mat-form-field>
+
+
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Nombre Etudiant</mat-label>
+        <input matInput formControlName="nombreEtudiant" required>
+        <mat-error *ngIf="classeForm.controls.name.touched && classeForm.controls.name.invalid">
+          <span *ngIf="classeForm.controls.name.errors.required">This field is mandatory</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+  </form>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" type="Submit" (click)="handelSubmit()" [disabled]=" !(classeForm.valid && classeForm.dirty)">
+    <mat-icon>save</mat-icon> Save
+  </button>
+  <button mat-raised-button color="warn" (click)="onClick()" mat-dialog-close><mat-icon>cancel</mat-icon> Close</button>
+</mat-dialog-actions>
+
+

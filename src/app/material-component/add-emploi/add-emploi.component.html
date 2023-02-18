@@ -1,0 +1,60 @@
+<mat-card>
+  <b><span>Add Emploi</span></b>
+</mat-card>
+<hr>
+
+<div class="mat-typography">
+<div class="container mt-3 col-md-6 offset-md-3">
+
+  <form [formGroup]="emploiForm">
+    <br>
+    <div class="mb-3">
+      <label class="form-label">Cours</label>
+      <input type="text" formControlName="cours" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Jour</label>
+      <input type="text" formControlName="jour" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Heure Debut</label>
+      <input type="text" formControlName="heureDB" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Heure Fin</label>
+      <input type="text" formControlName="heureDF" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Classe</mat-label>
+        <mat-select formControlName="classeId">
+          <mat-option *ngFor="let classe of classes" [value]="classe.id">
+            {{classe.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+  </form>
+</div>
+</div>
+<br>
+<br>
+
+
+
+
+
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" type="Submit" (click)="handelSubmit()" [disabled]=" !(emploiForm.valid && emploiForm.dirty)">
+    <mat-icon>save</mat-icon> Save
+  </button>
+  <button mat-raised-button color="warn" (click)="onClick()" mat-dialog-close><mat-icon>cancel</mat-icon> Close</button>
+</mat-dialog-actions>
+

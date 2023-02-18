@@ -1,0 +1,60 @@
+<mat-card>
+  <b><span>Manage Emploi</span></b>
+  <button mat-flat-button color="primary" class="float-right" (click)="handleNewEmploi()">
+    <mat-icon>add_circle</mat-icon> Add Emploi
+  </button>
+</mat-card>
+<hr>
+
+<mat-card>
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
+</mat-card>
+
+<div class="responsive_table">
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="Cours">
+      <th mat-header-cell *matHeaderCellDef>Cours</th>
+      <td mat-cell *matCellDef="let element">{{element.cours}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Jour">
+      <th mat-header-cell *matHeaderCellDef>Jour</th>
+      <td mat-cell *matCellDef="let element">{{element.jour}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date Debut">
+      <th mat-header-cell *matHeaderCellDef>Date Debut</th>
+      <td mat-cell *matCellDef="let element">{{element.heureDebut}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date Fin">
+      <th mat-header-cell *matHeaderCellDef>Date Fin</th>
+      <td mat-cell *matCellDef="let element">{{element.heureFin}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Classe">
+      <th mat-header-cell *matHeaderCellDef>Classe</th>
+      <td mat-cell *matCellDef="let element">{{element.classeName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <button mat-icon-button color="primary" matTooltip="Edit"  (click)="handleEditEmploi(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" matTooltip="Delete"  (click)="handleDeleteEmploi(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns;sticky:true"></tr>
+    <tr mat-row *matRowDef="let row;columns:displayColumns;"></tr>
+  </table>
+</div>
+

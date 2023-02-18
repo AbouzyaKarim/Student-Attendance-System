@@ -1,0 +1,41 @@
+<body>
+<mat-card>
+  <b><span>Dashboard</span></b>
+</mat-card>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2 class="title">Total Classes:</h2>
+        <h1 class="title">{{data?.classe}}</h1>
+        <p><button class="button" [routerLink]="['/attendance/classe']">View Classes</button> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2 class="title">Total Absences:</h2>
+        <h1 class="title">{{data?.absence}}</h1>
+        <p><button class="button" [routerLink]="['/attendance/absence']">View absences</button> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2 class="title">Total Etudiants:</h2>
+        <h1 class="title">{{data?.etudiant}}</h1>
+        <p><button class="button" [routerLink]="['/attendance/user']">View Etudiants</button> </p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+</body>

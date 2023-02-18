@@ -1,0 +1,37 @@
+<mat-card>
+  <b><span>Edit Classe</span></b>
+</mat-card>
+<hr>
+{{classeForm.controls.value| json}}
+<div class="mat-typography">
+  <div class="container mt-3 col-md-6 offset-md-3">
+
+    <form [formGroup]="classeForm">
+      <br>
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" formControlName="name" class="form-control">
+      </div>
+      <br>
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input type="text" formControlName="description" class="form-control">
+      </div>
+      <br>
+      <div class="mb-3">
+        <label class="form-label">Nombre Etudiant</label>
+        <input type="number" formControlName="nombreEtudiant" class="form-control">
+      </div>
+
+    </form>
+  </div>
+</div>
+<br>
+<br>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" type="Submit" (click)="handelSubmit()">
+    <mat-icon>save</mat-icon> Save
+  </button>
+  <button mat-raised-button color="warn" (click)="onClick()" mat-dialog-close><mat-icon>cancel</mat-icon> Close</button>
+</mat-dialog-actions>

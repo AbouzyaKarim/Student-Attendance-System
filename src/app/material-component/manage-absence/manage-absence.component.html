@@ -1,0 +1,59 @@
+<mat-card>
+  <b><span>Manage Absence</span></b>
+  <button mat-flat-button color="primary" class="float-right" (click)="handleNewAbsence()">
+    <mat-icon>add_circle</mat-icon> Add Absence
+  </button>
+</mat-card>
+<hr>
+
+
+
+<div class="responsive_table">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>email</th>
+      <td mat-cell *matCellDef="let element">{{element.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="contactNumber">
+      <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+      <td mat-cell *matCellDef="let element">{{element.contactNumber}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cours">
+      <th mat-header-cell *matHeaderCellDef>Cours</th>
+      <td mat-cell *matCellDef="let element">{{element.cours}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="classe">
+      <th mat-header-cell *matHeaderCellDef>Classe</th>
+      <td mat-cell *matCellDef="let element">{{element.classeName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <button mat-icon-button color="primary" matTooltip="Edit" (click)="handleDeleteAction(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns;sticky:true"></tr>
+    <tr mat-row *matRowDef="let row;columns:displayColumns;"></tr>
+  </table>
+</div>
+<br>
+<br>
+<mat-card>
+  <b><span>Manage SMS</span></b>
+  <button mat-flat-button color="primary" class="float-right" (click)="handleSMS()">
+    <mat-icon>sms</mat-icon> Send SMS
+  </button>
+</mat-card>
+<hr>
